@@ -87,7 +87,7 @@ async function notifyDiscord(webhookUrl, content) {
 async function checkTarget(context, target) {
   const page = await context.newPage();
   try {
-    await page.goto(target.url, { waitUntil: 'networkidle', timeout: 30000 });
+    await page.goto(target.url, { waitUntil: 'domcontentloaded', timeout: 30000 });
     await page.waitForTimeout(3000);
     const text = await page.innerText('body').catch(() => '');
     return { status: classify(text), snippet: text.slice(0, 400) };
