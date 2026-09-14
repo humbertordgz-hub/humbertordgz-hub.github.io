@@ -1,1 +1,18 @@
-{}
+{
+  "Best Buy": {
+    "status": "error",
+    "checkedAt": "2026-09-14T06:34:19.186Z"
+  },
+  "Target": {
+    "status": "out_of_stock",
+    "checkedAt": "2026-09-14T06:34:23.263Z"
+  },
+  "Walmart": {
+    "status": "unknown",
+    "checkedAt": "2026-09-14T06:34:26.348Z"
+  },
+  "Nintendo Store": {
+    "status": "unknown",
+    "checkedAt": "2026-09-14T06:34:29.441Z"
+  }
+}
