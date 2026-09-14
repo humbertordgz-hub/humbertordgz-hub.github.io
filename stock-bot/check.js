@@ -44,6 +44,8 @@ const OUT_OF_STOCK_PATTERNS = [
 const BLOCKED_PATTERNS = [
   /verify you are human/i,
   /press (and )?hold/i,
+  /activate and hold/i,
+  /robot or human/i,
   /access denied/i,
   /are you a robot/i,
   /security check/i,
@@ -85,8 +87,8 @@ async function notifyDiscord(webhookUrl, content) {
 async function checkTarget(context, target) {
   const page = await context.newPage();
   try {
-    await page.goto(target.url, { waitUntil: 'domcontentloaded', timeout: 30000 });
-    await page.waitForTimeout(2000);
+    await page.goto(target.url, { waitUntil: 'networkidle', timeout: 30000 });
+    await page.waitForTimeout(3000);
     const text = await page.innerText('body').catch(() => '');
     return { status: classify(text), snippet: text.slice(0, 400) };
   } catch (err) {
