@@ -26,6 +26,14 @@ const TARGETS = [
     name: 'Nintendo Store',
     url: 'https://www.nintendo.com/us/store/products/nintendo-switch-2-the-legend-of-zelda-40th-anniversary-edition-121642/',
   },
+  {
+    name: 'GameStop',
+    url: 'https://www.gamestop.com/consoles-hardware/nintendo-switch-2/products/nintendo-switch-2-the-legend-of-zelda-40th-anniversary-edition/20037854.html',
+  },
+  {
+    name: 'Amazon',
+    url: 'https://www.amazon.com/Nintendo-SwitchTM-Legend-ZeldaTM-Switch-2/dp/B0HJ6F8L6V',
+  },
 ];
 
 const IN_STOCK_PATTERNS = [/add to cart/i, /add to bag/i, /buy now/i, /ship it/i];
