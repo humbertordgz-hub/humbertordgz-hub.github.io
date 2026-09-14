@@ -2,7 +2,7 @@ name: Switch 2 Zelda Stock Check
 
 on:
   schedule:
-    - cron: '*/10 * * * *'
+    - cron: '*/5 * * * *'
   workflow_dispatch: {}
 
 permissions:

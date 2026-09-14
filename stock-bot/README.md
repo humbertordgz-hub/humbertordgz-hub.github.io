@@ -1,6 +1,6 @@
 # Switch 2 Zelda 40th Anniversary Edition — Stock Notify Bot
 
-Watches Best Buy, Target, Walmart, and the Nintendo Store every 10 minutes.
+Watches Best Buy, Target, Walmart, and the Nintendo Store every 5 minutes.
 When any of them flips from not-in-stock to in-stock, it posts an alert to
 a Discord channel you control. It is read-only: it never logs in, adds to
 cart, or buys anything — it only looks at the public page and tells you.
@@ -34,7 +34,7 @@ cart, or buys anything — it only looks at the public page and tells you.
   it as "blocked" in the Actions run log instead of guessing — it will not
   try to disguise itself as a human to get past that, so those two retailers
   may miss restocks. Target and the Nintendo Store worked cleanly in testing.
-- It checks every 10 minutes. That's intentionally not-too-aggressive so it
+- It checks every 5 minutes. That's intentionally not-too-aggressive so it
   behaves like a normal visitor, not a hammering bot.
 - It only tells you when something is in stock — you still complete checkout
   yourself, manually, as a human.
