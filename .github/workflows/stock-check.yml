@@ -1,0 +1,47 @@
+name: Switch 2 Zelda Stock Check
+
+on:
+  schedule:
+    - cron: '*/5 * * * *'
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: stock-check
+  cancel-in-progress: false
+
+jobs:
+  check-stock:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        working-directory: stock-bot
+        run: npm install
+
+      - name: Install Playwright browser
+        working-directory: stock-bot
+        run: npx playwright install --with-deps chromium
+
+      - name: Run stock check
+        working-directory: stock-bot
+        env:
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+        run: node check.js
+
+      - name: Persist state
+        run: |
+          if ! git diff --quiet -- stock-bot/state.json; then
+            git config user.name "stock-bot"
+            git config user.email "actions@users.noreply.github.com"
+            git add stock-bot/state.json
+            git commit -m "chore: update stock check state"
+            git push
+          fi

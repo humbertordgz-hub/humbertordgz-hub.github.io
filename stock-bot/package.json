@@ -1,0 +1,11 @@
+{
+  "name": "switch2-zelda-stock-bot",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "check": "node check.js"
+  },
+  "dependencies": {
+    "playwright": "^1.47.0"
+  }
+}
