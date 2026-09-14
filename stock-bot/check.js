@@ -58,6 +58,8 @@ const BLOCKED_PATTERNS = [
   /are you a robot/i,
   /security check/i,
   /request unsuccessful/i,
+  /verify real visitors/i,
+  /click the button below to continue shopping/i,
 ];
 
 function loadState() {
