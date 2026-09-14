@@ -88,10 +88,10 @@ async function checkTarget(context, target) {
     await page.goto(target.url, { waitUntil: 'domcontentloaded', timeout: 30000 });
     await page.waitForTimeout(2000);
     const text = await page.innerText('body').catch(() => '');
-    return classify(text);
+    return { status: classify(text), snippet: text.slice(0, 400) };
   } catch (err) {
     console.error(`[${target.name}] check failed: ${err.message}`);
-    return 'error';
+    return { status: 'error', snippet: '' };
   } finally {
     await page.close();
   }
@@ -109,9 +109,12 @@ async function main() {
   });
 
   for (const target of TARGETS) {
-    const status = await checkTarget(context, target);
+    const { status, snippet } = await checkTarget(context, target);
     const previous = state[target.name]?.status;
     console.log(`[${target.name}] status=${status} (previous=${previous ?? 'none'})`);
+    if (status === 'unknown' || status === 'blocked') {
+      console.log(`[${target.name}] page text snippet: ${JSON.stringify(snippet)}`);
+    }
 
     if (status === 'in_stock' && previous !== 'in_stock') {
       await notifyDiscord(
