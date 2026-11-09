@@ -1,26 +1,26 @@
 {
   "Best Buy": {
     "status": "error",
-    "checkedAt": "2026-11-08T22:48:41.856Z"
+    "checkedAt": "2026-11-09T02:04:08.267Z"
   },
   "Target": {
     "status": "unknown",
-    "checkedAt": "2026-11-08T22:48:47.355Z"
+    "checkedAt": "2026-11-09T02:04:14.309Z"
   },
   "Walmart": {
     "status": "blocked",
-    "checkedAt": "2026-11-08T22:48:52.457Z"
+    "checkedAt": "2026-11-09T02:04:17.792Z"
   },
   "Nintendo Store": {
     "status": "out_of_stock",
-    "checkedAt": "2026-11-08T22:48:57.049Z"
+    "checkedAt": "2026-11-09T02:04:21.773Z"
   },
   "GameStop": {
     "status": "unknown",
-    "checkedAt": "2026-11-08T22:49:00.301Z"
+    "checkedAt": "2026-11-09T02:04:25.006Z"
   },
   "Amazon": {
-    "status": "out_of_stock",
-    "checkedAt": "2026-11-08T22:49:03.973Z"
+    "status": "blocked",
+    "checkedAt": "2026-11-09T02:04:28.159Z"
   }
 }
